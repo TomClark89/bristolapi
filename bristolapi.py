@@ -20,7 +20,7 @@ for i in r.json()['data']['rtiReports'][0]['upcomingCalls']:
         #     data_list.append(data_line_string)
         time_string = i['expectedArrivalTime']
         tuple_time = time.strptime(time_string[0:19], "%Y-%m-%dT%H:%M:%S")
-        time_string_new = (str(tuple_time[3]) +':'+ str(tuple_time[4]).zfill(2))
+        time_string_new = (str(tuple_time[3]).zfill(2) +':'+ str(tuple_time[4]).zfill(2))
         print (time_string_new)
         headsign_text_justified = i['tripInfo']['headsign'].ljust(20)
         dataline = time_string_new,headsign_text_justified,i['routeInfo']['lineName']
